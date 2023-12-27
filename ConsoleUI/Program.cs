@@ -13,6 +13,7 @@ namespace ConsoleUI
             {
                 //Console.WriteLine("CategoryID = "+product.CategoryID +" ProductName = " +product.ProductName);
                 Console.WriteLine(" ProductName = " +product.ProductName+ "--- Product Price = " + product.Price);
+                Console.WriteLine("zort");
             }
 
             Console.ReadLine();
