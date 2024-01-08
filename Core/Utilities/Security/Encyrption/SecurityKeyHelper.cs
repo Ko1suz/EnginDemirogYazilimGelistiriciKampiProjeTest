@@ -9,9 +9,9 @@ namespace Core.Utilities.Security.Encyrption
 {
     public class SecurityKeyHelper
     {
-        public static SecurityKey CreateSecurityKey(string securitykey)
+        public static SecurityKey CreateSecurityKey(string securityKey)
         {
-            return new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securitykey));
+            return new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey));
         }
     }
 }
