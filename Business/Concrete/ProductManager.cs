@@ -50,6 +50,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.ProductAdded + " " + product.ProductName);
         }
 
+        //[Cache Aspect] // key , value
         public IDataResult<List<Product>> GetAll()
         {
             // İş kodları

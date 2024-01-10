@@ -4,6 +4,8 @@ using Business.Abstract;
 using Business.Concrete;
 using Business.CrossCuttingConcernsTest;
 using Castle.DynamicProxy;
+using Core.CrossCuttingConcerns.Caching.Microsoft;
+using Core.CrossCuttingConcerns.Caching;
 using Core.Utilities.Interceptors;
 using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
@@ -30,6 +32,8 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
 
             builder.RegisterType<HttpContextAccessor>().As<IHttpContextAccessor>();
+
+            //builder.RegisterType<MemoryCacheManager>().As<ICacheManager>();
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
