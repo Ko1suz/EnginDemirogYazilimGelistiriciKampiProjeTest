@@ -3,6 +3,7 @@ using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.CrossCuttingConcernsTest;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Buisness;
@@ -51,6 +52,7 @@ namespace Business.Concrete
         }
 
         //[Cache Aspect] // key , value
+        [CacheAspect]
         public IDataResult<List<Product>> GetAll()
         {
             // İş kodları
@@ -66,6 +68,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Product>>(_productDal.GetAll(p=> p.CategoryID == categoryID));
         }
 
+        [CacheAspect]
         public IDataResult<Product> GetByID(int productID)
         {
             return new SuccessDataResult<Product>(_productDal.Get(p => p.ProductID == productID));

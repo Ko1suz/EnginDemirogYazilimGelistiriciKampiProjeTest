@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Graph.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +11,13 @@ namespace Core.Utilities.IoC
 {
     public static class ServiceTool
     {
-        public static IServiceProvider ServiceProvider { get; private set; }
+        private static IServiceProvider _serviceProvider;
+
+        public static IServiceProvider ServiceProvider => _serviceProvider;
 
         public static IServiceCollection Create(IServiceCollection services)
         {
-            ServiceProvider = services.BuildServiceProvider();
+            _serviceProvider = services.BuildServiceProvider();
             return services;
         }
     }

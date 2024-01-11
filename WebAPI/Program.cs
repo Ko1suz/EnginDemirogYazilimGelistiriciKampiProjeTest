@@ -12,16 +12,18 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Core.CrossCuttingConcerns.Caching;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
+using Core.Utilities.IoC;
+using Core.DependecyResolvers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 //builder.Services.AddDependencyResolvers();
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddMemoryCache();
-builder.Services.AddSingleton<ICacheManager, MemoryCacheManager>();
+//builder.Services.AddMemoryCache();
+//builder.Services.AddSingleton<ICacheManager, MemoryCacheManager>();
+builder.Services.AddDependencyResolvers(new ICoreModule[] { new CoreModule() });
 
 
 
