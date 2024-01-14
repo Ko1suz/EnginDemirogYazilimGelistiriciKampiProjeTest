@@ -13,6 +13,7 @@ namespace Core.Aspects.Autofac.Transaction
     {
         public override void Intercept(IInvocation invocation)
         {
+            //angular günü
             using (TransactionScope transactionScope = new TransactionScope())
             {
                 try
