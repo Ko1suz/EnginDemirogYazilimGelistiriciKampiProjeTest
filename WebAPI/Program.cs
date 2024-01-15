@@ -24,7 +24,7 @@ builder.Services.AddControllers();
 //builder.Services.AddMemoryCache();
 //builder.Services.AddSingleton<ICacheManager, MemoryCacheManager>();
 builder.Services.AddDependencyResolvers(new ICoreModule[] { new CoreModule() });
-
+builder.Services.AddCors();
 
 
 var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
@@ -67,6 +67,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
+// Türkçesi -> Cors'u kullan ve http://localhost:4200 adresinden gelen bütün istekleri onayla
 
 app.UseHttpsRedirection();
 
